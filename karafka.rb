@@ -15,7 +15,7 @@ APP_LOADER.enable_reloading
 %w[
   lib
   app/consumers
-].each { |dir| APP_LOADER.push_dir(dir) }
+].each { |dir| APP_LOADER.push_dir(dir) if File.exist?(dir) }
 
 APP_LOADER.setup
 APP_LOADER.eager_load
