@@ -1,5 +1,7 @@
 # Karafka test
 
+## Run everything
+
 Setup:
 
 ```
@@ -25,7 +27,7 @@ Run producer:
 bundle exec ruby producer.rb
 ```
 
-# Notes
+## Notes
 
 See: https://karafka.io/docs/Getting-Started/
 
