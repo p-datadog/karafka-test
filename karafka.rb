@@ -88,3 +88,15 @@ end
 # Visit the setup documentation to get started and enhance your experience.
 #
 # https://karafka.io/docs/Web-UI-Getting-Started
+
+
+# require datadog/statsd and the listener as it is not loaded by default
+#require 'datadog/statsd'
+require 'karafka/instrumentation/vendors/datadog/metrics_listener'
+require 'karafka/instrumentation/vendors/datadog/logger_listener'
+
+# Initialize the listener
+dd_logger_listener = Karafka::Instrumentation::Vendors::Datadog::LoggerListener.new do |config|
+  config.client = Datadog::Tracing
+end
+p Karafka.monitor.subscribe(dd_logger_listener)
